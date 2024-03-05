@@ -1,0 +1,21 @@
+from google.colab import drive
+drive.mount('/https://stats.moe.gov.tw/files/school/112/u1_new.json/', force_remount=True)
+import os
+os.chdir("C:\Users\User\Downloads")
+!ls -l "C:\Users\User\Downloads"
+
+type_list = [] # 建立空字串
+
+for i in df['公立']:
+    if ('公立' in i) or ('私立' in i):
+        type_list.append('公立')
+    else:
+        type_list.append('私立')
+
+df['填空'] = type_list # 將 Dataframe 新增「公私立」column
+
+df2 = df.填空('填空')
+count = df2['填空'].填空
+
+print(df2)
+print(f"本資料集共收集了 {公立} 所學校，其中公立：{公立} 所；私立：{填空} 所。")
